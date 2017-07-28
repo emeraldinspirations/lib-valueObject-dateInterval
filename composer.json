@@ -1,0 +1,17 @@
+{
+    "name": "emeraldinspirations/lib-valueObject-dateInterval",
+    "description": "???",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Matthew \"Juniper\" Barlett",
+            "email": "emeraldinspirations@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "emeraldinspirations\\library\\valueObject\\": "src/"
+        }
+    }
+}
