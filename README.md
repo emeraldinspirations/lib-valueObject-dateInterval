@@ -8,34 +8,12 @@ A value object for periods of time (e.x. 1 year).  Adds `toString()` and `equals
 
 ## Installing / Getting started
 
-This project has no dependencies, so can be cloned directly from the git repo
+This project has no dependencies, so can be cloned directly from the git repo or required with Composer.
 
-### Option 1 - Clone with HTTPS
-
-```shell
-git clone https://github.com/emeraldinspirations/lib-valueobject-dateinterval.git
-```
-
-### Option 2 - Clone with SSH
+### Require with Composer
 
 ```shell
-git clone git@github.com:emeraldinspirations/lib-valueobject-dateinterval.git
-```
-
-### Option 3 - Require with Composer
-
-Add the following lines to your `composer.json` file
-
-```json
-"repositories" : [
-    {
-        "type" : "vcs",
-        "url" : "https://github.com/emeraldinspirations/lib-valueobject-dateinterval.git"
-    }
-],
-"require": {
-    "emeraldinspirations/lib-valueobject-dateinterval":"*",
-}
+composer require emeraldinspirations/lib-valueobject-dateinterval
 ```
 
 ## Contributing
