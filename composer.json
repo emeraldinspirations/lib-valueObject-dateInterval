@@ -1,6 +1,6 @@
 {
     "name": "emeraldinspirations/lib-valueobject-dateinterval",
-    "description": "???",
+    "description": "A value object for periods of time (e.x. 1 year). Adds toString() and equals() functions to \\DateInterval object.",
     "type": "library",
     "authors": [
         {
@@ -13,5 +13,6 @@
         "psr-4": {
             "emeraldinspirations\\library\\valueObject\\dateInterval\\": "src/"
         }
-    }
+    },
+    "license": "MIT"
 }
