@@ -25,6 +25,7 @@ namespace emeraldinspirations\library\valueObject;
  * @license   TBD ../LICENSE.md
  * @version   GIT: $Id: f627306671268e7a24c3809def44b16abd93065a $ In Development.
  * @link      https://github.com/emeraldinspirations/lib-valueObject-dateInterval
+ * @link      http://php.net/manual/en/class.dateinterval.php Parent Class
  */
 class DateInterval extends \DateInterval
 {
@@ -86,12 +87,33 @@ class DateInterval extends \DateInterval
      */
     public function equals(self $Object)
     {
+        return self::compare($this, $Object) === 0;
+    }
+
+    /**
+     * Return three-way comparison value of two DateInterval objects
+     *
+     * Returns:
+     * -  0 - If both objects are equal
+     * -  1 - If the first object is grater than the second object
+     * - -1 - If the second object is grater than the first object
+     *
+     * @param self $Object1 First object to compare
+     * @param self $Object2 Second object to compare
+     *
+     * @return integer three-way comparison value
+     */
+    static function compare(self $Object1, self $Object2) : int
+    {
+
         foreach (['y', 'm', 'd', 'h', 'i', 's'] as $Magnatude) {
-            if (($this->$Magnatude <=> $Object->$Magnatude) !== 0) {
-                return false;
+            $SpaceshipValue = $Object1->$Magnatude <=> $Object2->$Magnatude;
+            if ($SpaceshipValue !== 0) {
+                return $SpaceshipValue;
             }
         }
-        return true;
+
+        return 0;
     }
 
 }

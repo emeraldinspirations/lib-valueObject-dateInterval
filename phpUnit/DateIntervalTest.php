@@ -44,7 +44,7 @@ class DateIntervalTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Verifies object exists, inherits correctly, and is constructable
+     * Verify object exists, inherits correctly, and is constructable
      *
      * @return void
      */
@@ -66,7 +66,7 @@ class DateIntervalTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Verifies new toString function returns correct value
+     * Verify `toString` function returns correct value
      *
      * @return void
      */
@@ -107,7 +107,7 @@ class DateIntervalTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Verifies new equals function returns correct value
+     * Verify `equals` function returns correct value
      *
      * @return void
      */
@@ -136,6 +136,38 @@ class DateIntervalTest extends \PHPUnit_Framework_TestCase
             $this->assertFalse(
                 $Object1a->equals(new DateInterval($Attempt)),
                 'Fails if fucntion returns that different values are the same'
+            );
+        }
+
+    }
+
+    /**
+     * Verify `compare` function evaluates correctly
+     *
+     * @return void
+     */
+    public function testCompare()
+    {
+
+        $Attempts = [
+            [ 'P1Y2M3DT4H5M6S' , 'P1Y2M3DT4H5M6S' ,  0 ],
+            [ 'P1Y1M1DT1H1M1S' , 'P2Y2M2DT2H2M2S' , -1 ],
+            [ 'P3Y1M1DT1H1M1S' , 'P2Y2M2DT2H2M2S' ,  1 ],
+            [ 'P2Y3M1DT1H1M1S' , 'P2Y2M2DT2H2M2S' ,  1 ],
+            [ 'P2Y2M3DT1H1M1S' , 'P2Y2M2DT2H2M2S' ,  1 ],
+            [ 'P2Y2M2DT3H1M1S' , 'P2Y2M2DT2H2M2S' ,  1 ],
+            [ 'P2Y2M2DT2H3M1S' , 'P2Y2M2DT2H2M2S' ,  1 ],
+            [ 'P2Y2M2DT2H2M3S' , 'P2Y2M2DT2H2M2S' ,  1 ],
+            [ 'P2Y2M2DT2H2M1S' , 'P2Y2M2DT2H2M2S' , -1 ],
+        ];
+
+        foreach($Attempts as $Attempt) {
+            $Object0 = new DateInterval($Attempt[0]);
+            $Object1 = new DateInterval($Attempt[1]);
+            $this->assertEquals(
+                $Attempt[2],
+                DateInterval::compare($Object0, $Object1),
+                'Fails if objects compair incorrectly'
             );
         }
 
