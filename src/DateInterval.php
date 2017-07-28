@@ -35,7 +35,7 @@ class DateInterval extends \DateInterval
      *
      * @return string
      */
-    public function toString()
+    public function toString() : string
     {
 
         $Function = function (string $Preface, array $Data) : string {
@@ -73,7 +73,7 @@ class DateInterval extends \DateInterval
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return $this->toString();
     }
@@ -85,7 +85,7 @@ class DateInterval extends \DateInterval
      *
      * @return bool
      */
-    public function equals(self $Object)
+    public function equals(self $Object) : bool
     {
         return self::compare($this, $Object) === 0;
     }
@@ -101,7 +101,7 @@ class DateInterval extends \DateInterval
      * @param self $Object1 First object to compare
      * @param self $Object2 Second object to compare
      *
-     * @return integer three-way comparison value
+     * @return int three-way comparison value
      */
     static function compare(self $Object1, self $Object2) : int
     {
