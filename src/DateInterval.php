@@ -13,7 +13,7 @@
  * @link      https://github.com/emeraldinspirations/lib-valueObject-dateInterval
  */
 
-namespace emeraldinspirations\library\valueObject;
+namespace emeraldinspirations\library\valueObject\dateInterval;
 
 /**
  * An extension of the DateInterval object
