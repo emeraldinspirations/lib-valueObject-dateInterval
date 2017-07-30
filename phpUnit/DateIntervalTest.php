@@ -63,6 +63,12 @@ class DateIntervalTest extends \PHPUnit_Framework_TestCase
             'Fails if object does not inherit from parent object'
         );
 
+        $this->assertInstanceOf(
+            \JsonSerializable::class,
+            $this->Object,
+            'Fails if object does not implement JsonSerializable'
+        );
+
     }
 
     /**
@@ -92,14 +98,19 @@ class DateIntervalTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals(
                 $this->Object->toString(),
                 $Attempt,
-                'Fails if function doesn\'t exist, or returns wrong value'
+                'Fails if toString doesn\'t exist, or returns wrong value'
             );
-
 
             $this->assertEquals(
                 (string) $this->Object,
                 $Attempt,
-                'Fails if function doesn\'t exist, or returns wrong value'
+                'Fails if __toString doesn\'t exist, or returns wrong value'
+            );
+
+            $this->assertEquals(
+                $this->Object->jsonSerialize(),
+                $Attempt,
+                'Fails if jsonSerialize doesn\'t exist, or returns wrong value'
             );
 
         }

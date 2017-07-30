@@ -27,7 +27,7 @@ namespace emeraldinspirations\library\valueObject\dateInterval;
  * @link      https://github.com/emeraldinspirations/lib-valueObject-dateInterval
  * @link      http://php.net/manual/en/class.dateinterval.php Parent Class
  */
-class DateInterval extends \DateInterval
+class DateInterval extends \DateInterval implements \JsonSerializable
 {
 
     /**
@@ -114,6 +114,16 @@ class DateInterval extends \DateInterval
         }
 
         return 0;
+    }
+
+    /**
+     * Return interval specification when parent object is being Serialized
+     *
+     * @return string
+     */
+    public function jsonSerialize() : string
+    {
+        return $this->toString();
     }
 
 }
